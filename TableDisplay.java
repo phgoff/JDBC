@@ -30,8 +30,7 @@ public class TableDisplay extends JFrame
     try {
       Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
       conn = DriverManager.getConnection(url);
-      executeQuery(conn, "SELECT FirstName from Authors where AuthorID IN"+"(SELECT AuthorID from AuthorISBN where ISBN IN"
-                          +"(SELECT ISBN from Titles where Title like 'C*'))");
+      executeQuery(conn, "SELECT SUBSTRING(Title,1) FROM Titles where Title like '*++*' ");
     
     } 
     catch (ClassNotFoundException e) {
